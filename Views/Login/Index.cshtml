@@ -1,0 +1,74 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>HRMS</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width" />
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <!-- END META SECTION -->
+    <!-- CSS INCLUDE -->
+    <script src="~/scripts/jquery-1.10.2.js"></script>
+    <script src="~/scripts/Login/login.js"></script>
+    <link rel="stylesheet" type="text/css" id="theme" href="~/Content/theme-default.css" />
+    <style>
+        .form-control {
+            margin-bottom: 10px;
+        }
+    </style>
+
+</head>
+<body>
+    <form runat="server">
+        <div class="login-container" style="height:700px">
+
+            <div class="login-box animated fadeInDown">
+
+                <div class="login-body" style="text-align: center;">
+                    <img src="~/Content/img/logo2.PNG" style="width:100%" />
+                    <div class="login-title"><strong>Welcome</strong>, Please login</div>
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                @Html.TextBox("txtUserName", "", new { @class = "form-control", @placeholder = "User Name" })
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                @Html.Password("txtPassword", "", new { @class = "form-control", @placeholder = "Password" })
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-md-12">
+                               
+                                    <input type="button" id="BtnSubmit" Class="btn btn-info btn-block" value="Login" />
+                                    
+                                </div>
+                            <label id="loginfailed" style="color:#CC0000;"></label>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="login-footer">
+                    <div class="pull-left">
+                        &copy; 2017 Rights Resereved. Nexgen Technologies
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </form>
+
+</body>
+</html>

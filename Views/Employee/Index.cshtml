@@ -1,0 +1,437 @@
+﻿@model HRMS.DBModel.employee
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+<link href="~/Content/jquery.jqGrid/ui.jqgrid.css" rel="stylesheet" />
+
+<script src="~/scripts/jquery-1.10.2.min.js"></script>
+<script src="~/scripts/i18n/grid.locale-en.js"></script>
+<script src="~/scripts/jquery.jqGrid.min.js"></script>
+<script src="~/scripts/Employee/employee.js"></script>
+<script>
+    $(function () {
+        $("#txtdate").datepicker();
+    });
+</script>
+<style>
+    .fa {
+        padding-left: 5px;
+        cursor: pointer;
+    }
+</style>
+
+
+<div class="row">
+    <div class="col-md-12">
+
+        <div class="form-horizontal">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><strong>Employee Master  </strong></h3>
+                    <ul class="panel-controls">
+                        <li><a href="#" class="panel-remove"><span class="fa fa-times"></span></a></li>
+                    </ul>
+                </div>
+                <div class="panel-body">
+                </div>
+                <div class="panel-body">
+
+                    <div class="row">
+
+                        <div class="col-md-3">
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Emp ID </label>
+                                <div class="col-md-9">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                        @Html.TextBox("txtEmpID", "", new { @class = "form-control" })
+                                    </div>
+                                    <span class="help-block">This is Emp ID</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3">
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">EMP ORG #   </label>
+                                <div class="col-md-9">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                        @Html.TextBox("txtEMpOrg", "", new { @class = "form-control" })
+                                    </div>
+                                    <span class="help-block">This is  EMP ORG #</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3">
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">First Name   </label>
+                                <div class="col-md-9">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                        @Html.TextBox("txtFirstName", "", new { @class = "form-control" })
+                                    </div>
+                                    <span class="help-block">This is  First Name</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3">
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Last Name   </label>
+                                <div class="col-md-9">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                        @Html.TextBox("txtLastName", "", new { @class = "form-control" })
+                                    </div>
+                                    <span class="help-block">This is  Last Name</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3">
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Department   </label>
+                                <div class="col-md-9">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                        @Html.DropDownList("ddDept", null, htmlAttributes: new { @class = "form-control" })
+
+                                    </div>
+                                    <span class="help-block">This is  Department</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3">
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Location   </label>
+                                <div class="col-md-9">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                        @Html.DropDownList("ddLoc",null,htmlAttributes : new  { @class="form-control"})
+                                    </div>
+                                    <span class="help-block">This is  Location</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3">
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Designation   </label>
+                                <div class="col-md-9">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                        @Html.TextBox("txtDesignation", "", new { @class = "form-control" })
+                                    </div>
+                                    <span class="help-block">This is  Designation</span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-3">
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Employee type   </label>
+                                <div class="col-md-9">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                        @Html.DropDownList("ddEmpType", null, htmlAttributes: new { @class = "form-control" })
+                                    </div>
+                                    <span class="help-block">This is  Employee type</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3">
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Religion   </label>
+                                <div class="col-md-9">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                        @Html.TextBox("txtReligion", "", new { @class = "form-control" })
+                                    </div>
+                                    <span class="help-block">This is  Religion</span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-3">
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Visa status   </label>
+                                <div class="col-md-9">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                        @Html.TextBox("txtVisaStatus", "", new { @class = "form-control" })
+                                    </div>
+                                    <span class="help-block">This is  Visa status</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3">
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Emp status   </label>
+                                <div class="col-md-9">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                        @Html.DropDownList("ddStatus", null, htmlAttributes: new { @class = "form-control" })
+                                    </div>
+                                    <span class="help-block">This is  Emp status</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3">
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Nationality   </label>
+                                <div class="col-md-9">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                        @Html.DropDownList("ddNationality",null, htmlAttributes: new { @class = "form-control" })
+                                    </div>
+                                    <span class="help-block">This is  Nationality</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3">
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Date of Birth  </label>
+                                <div class="col-md-9">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                        @Html.TextBox("txtDob", "", new { @class = "form-control" })
+                                    </div>
+                                    <span class="help-block">This is Date of Birth  </span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3">
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Gender </label>
+                                <div class="col-md-9">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                        <select id="ddGender" class="form-control"><option value="*">Select Gender</option><option value="M">Male</option><option value="F">Female</option></select>
+
+                                    </div>
+                                    <span class="help-block">This is Gender  </span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3">
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Martial_status </label>
+                                <div class="col-md-9">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                        <select class="form-control" name="ddMartialStatus"><option>Married</option><option>Single</option></select>
+                                    </div>
+
+                                    <span class="help-block">This is Martial_status  </span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3">
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Accomodation </label>
+                                <div class="col-md-9">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                        @Html.TextBox("txtAccomodation","",new  { @class="form-control" } )
+                                    </div>
+                                    <span class="help-block">This is Accomodation  </span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3">
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Passport </label>
+                                <div class="col-md-9">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                        @Html.TextBox("txtPassport", "", new { @class = "form-control" })
+                                    </div>
+                                    <span class="help-block">This is Passport  </span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3">
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Emirates ID </label>
+                                <div class="col-md-9">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                        @Html.TextBox("txtEmiratedID", "", new { @class = "form-control" })
+                                    </div>
+                                    <span class="help-block">This is Emirates ID  </span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-3">
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Bank Name </label>
+                                <div class="col-md-9">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                        @Html.DropDownList("ddBankName",null, htmlAttributes: new { @class = "form-control" })
+                                    </div>
+                                    <span class="help-block">This is Bank Name  </span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3">
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Bank account </label>
+                                <div class="col-md-9">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                        @Html.TextBox("txtBankAccount", "", new { @class = "form-control" })
+                                    </div>
+                                    <span class="help-block">This is Bank account  </span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3">
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Joining Date</label><div class="col-md-9">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                        @Html.TextBox("txtJoiningDate", "", new { @class = "form-control" })
+                                    </div>
+                                    <span class="help-block">This is Joining Date  </span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3">
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Camp Assign </label>
+                                <div class="col-md-9">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                        @Html.DropDownList("ddCamp",null, htmlAttributes: new { @class = "form-control" })
+
+                                    </div>
+                                    <span class="help-block">This is Camp Assign   </span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3">
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">OS Emp</label><div class="col-md-9">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                        @Html.TextBox("txtOutsourceEmp", "", new { @class = "form-control" })
+                                    </div>
+                                    <span class="help-block">This is outsource emp</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3">
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Choose Image </label>
+                                <div class="col-md-9">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                        <input type="text" id="t27" runat="server" class="form-control" />
+                                    </div>
+                                    <span class="help-block">This is Employee Picture </span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-6">
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Remarks  </label>
+                                <div class="col-md-9">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                        @Html.TextArea("txtRemarks",new {@class="form-control" })
+                                    </div>
+                                    <span class="help-block">This is Employee Remarks </span>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+
+                    </div>
+
+                </div>
+                <div class="panel-footer">
+                    <h4 id="qstatus" runat="server"></h4>
+                    <div style="float:right;">
+                        <input type="button" CssClass="btn btn-primary pull-right"  id="btnSave" value="Save" />
+                        <input type="button" CssClass="btn btn-primary pull-right" id="btnClear" value="Clear" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><strong>Employee List  </strong></h3>
+                <ul class="panel-controls">
+                    <li><a href="#" class="panel-remove"><span class="fa fa-times"></span></a></li>
+                </ul>
+            </div>
+            <div class="panel-body">
+            </div>
+            <div class="panel-body">
+                <table id="Demogrid" style="width:97%"></table>
+            </div>
+        </div>
+    </div>
+</div>

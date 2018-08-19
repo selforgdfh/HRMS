@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="41486ce7ad284cb7a6bf8fd1bece2b78" Name="Diagram1">
+        <EntityTypeShape EntityType="HRMSModel.bank" Width="1.5" PointX="0.75" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMSModel.camp" Width="1.5" PointX="0.75" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMSModel.department" Width="1.5" PointX="0.75" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMSModel.EMP_Personal" Width="1.5" PointX="8.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMSModel.employee" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMSModel.employeeType" Width="1.5" PointX="0.75" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMSModel.location" Width="1.5" PointX="6" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMSModel.Login" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMSModel.Nationality" Width="1.5" PointX="0.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMSModel.status" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMSModel.test" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMSModel.user" Width="1.5" PointX="3.75" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMSModel.visatype" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMSModel.document" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="HRMSModel.FK_User_Bank_Type" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMSModel.FK__camp__parentid__4B7734FF" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMSModel.FK_User_Camp_Type" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMSModel.FK__employee__depart__17F790F9" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMSModel.FK__employee__create__1CBC4616" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMSModel.FK__employee__employ__1AD3FDA4" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMSModel.FK__employee__empSta__1BC821DD" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMSModel.FK__employee__locati__18EBB532" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMSModel.FK__employee__Report__19DFD96B" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMSModel.FK__employee__update__1DB06A4F" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMSModel.FK_User_Nationality_Type" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMSModel.FK_location_createdby" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMSModel.FK_location_parentID" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMSModel.FK_location_status" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMSModel.FK_location_updatedby" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMSModel.FK__Login__createdby__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMSModel.FK__Login__PswdUpdat__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMSModel.FK__Login__updateby__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMSModel.FK__users__createdby__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMSModel.FK__users__PswdUpdat__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMSModel.FK__users__updateby__4D94879B" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

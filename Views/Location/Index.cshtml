@@ -1,0 +1,138 @@
+﻿@model HRMS.DBModel.location
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<head>
+    <style>
+        .fa {
+            padding-left: 5px;
+            cursor: pointer;
+        }
+    </style>
+
+
+    <script src="~/scripts/Plugins/jquery/jquery.min.js"></script>
+    <script src="~/scripts/bootstrap.min.js"></script>
+    <script src="~/scripts/Plugins/cb/logger.js"></script>
+    <script src="~/scripts/location/location.js"></script>
+    <script src="~/scripts/nTreeView.js" type="text/javascript"></script>
+</head>
+
+<body>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><strong>Location List  </strong></h3>
+                    <ul class="panel-controls"></ul>
+                </div>
+                <div class="panel-body">
+                </div>
+                <div class="panel-body">
+
+                    <div class="row">
+
+                        <div class="col-md-3">
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Location ID </label>
+                                <div class="col-md-9">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                        <input type="text" readonly id="depid" runat="server" class="form-control" />
+                                    </div>
+                                    <span class="help-block">This is Location ID</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3">
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Title   </label>
+                                <div class="col-md-9">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                        <input type="text" id="title" runat="server" class="form-control" />
+                                    </div>
+                                    <span class="help-block">This is  Title</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3">
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Parent  </label>
+                                <div class="col-md-9">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                        @Html.DropDownList("ddDept", null, htmlAttributes: new { @class = "form-control" })
+                                        <input style="display: none" type="text" id="pid" runat="server" class="form-control" />
+                                    </div>
+                                    <span class="help-block">This is Parent  </span>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+
+
+
+                    </div>
+
+                </div>
+                <div class="panel-footer">
+                    <h4 id="qstatus" runat="server"></h4>
+                    <input type="button" id="btnSave" value="Save" class="btn btn-primary pull-right" />
+                    <input type="button" id="btnDelete" value="Delete" class="btn btn-primary pull-right" />
+
+
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-12">
+
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h2><span class="fa fa-sitemap" style="padding-right: 2%"></span>Location<span runat="server" id="parenthead"> List  </span></h2>
+                                <ul class="panel-controls"></ul>
+                            </div>
+                            <div class="panel-body">
+                            </div>
+                            <div class="panel-body">
+
+                                <div class="row">
+                                    <div class="col-md-6" style="font-weight: bold">
+
+                                        <div style="font-size: 16px" class="treeview-checkbox-demo" id="ddtree">
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="panel-footer">
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+
+</body>

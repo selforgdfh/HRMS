@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+
+<html>
+@*<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>*@
+
+<head>
+    <!-- META SECTION -->
+    <title>HRMS Nexgen </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="icon" href="mygym/img/logo.png" type="image/x-icon" />
+    <!-- END META SECTION -->
+    <!-- CSS INCLUDE -->
+    <link rel="stylesheet" type="text/css" id="theme" href="~/Content/theme-default.css" />
+    <style>
+        .x-navigation > li.xn-logo > a:first-child {
+            font-size: 0px;
+            text-indent: -9999px;
+            background: url(img/logo2.PNG) top center no-repeat #33414e;
+            padding: 0px;
+            border-bottom: 0px;
+            color: #FFF;
+            height: 60px;
+        }
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <!-- EOF CSS INCLUDE -->
+</head>
+
+<body>
+    <!-- START PAGE CONTAINER --> 
+   
+        <div class="page-container">
+
+            <!-- START PAGE SIDEBAR -->
+            <div class="page-sidebar">
+                <!-- START X-NAVIGATION -->
+                <ul class="x-navigation">
+                    <li class="xn-logo">
+                        <a href="main.aspx"></a>
+                        <a href="#" class="x-navigation-control"></a>
+                    </li>
+
+                    <li class="xn-title">Navigation</li>
+                    <li class="active">
+                        <a href="@Url.Action("Index","dashboard")"><span class="fa fa-bar-chart"></span> <span class="xn-text">Dashboard</span></a>
+                    </li>
+                    <li>
+                        
+                        <a href="@Url.Action("Index","Employee")"><span class="fa fa-map-marker"></span> <span class="xn-text">Employee Master</span></a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index","Department")"><span class="fa fa-sitemap"></span> <span class="xn-text">Departments</span></a>
+                    </li>
+                    <li>
+                        
+                        <a href="@Url.Action("Index","Location")"><span class="fa fa-map-marker"></span> <span class="xn-text">Locations</span></a>
+                    </li>
+                    <li>
+                        <a href="CampList.aspx"><span class="fa fa-bandcamp"></span> <span class="xn-text">Camps</span></a>
+                    </li>
+                    <li>
+                        <a href="Documents.aspx"><span class="fa fa-book"></span> <span class="xn-text">Documents Library</span></a>
+                    </li>
+                    <li>
+                        <a href="Missing.aspx"><span class="fa fa-key"></span> <span class="xn-text">Users & Rights</span></a>
+                    </li>
+                    <li>
+                        <a href="Missing.aspx"><span class="fa fa-lock"></span> <span class="xn-text">Policy & Benefits</span></a>
+                    </li>
+                    <li>
+                        <a href="Missing.aspx"><span class="fa fa-pie-chart"></span> <span class="xn-text">Performance Management</span></a>
+                    </li>
+
+                    <li>
+                        <a href="Leave.aspx"><span class="fa fa-user-times"></span> <span class="xn-text">Leave Management</span></a>
+                    </li>
+
+
+                </ul>          <!-- END X-NAVIGATION -->
+            </div>     <!-- END PAGE SIDEBAR -->
+            <!-- PAGE CONTENT -->
+            <div>
+                <div class="page-content">
+                    @RenderBody()
+                </div>
+           
+
+                <!-- START X-NAVIGATION VERTICAL -->
+                <ul class="x-navigation x-navigation-horizontal x-navigation-panel">
+                    <!-- TOGGLE NAVIGATION -->
+                    <!-- END TOGGLE NAVIGATION -->
+                    <!-- SEARCH -->
+                    <!-- END SEARCH -->
+                    <!-- SIGN OUT -->
+                    <li class="xn-icon-button pull-right">
+                        <a href="#" class="mb-control" data-box="#mb-signout"><span class="fa fa-sign-out"></span></a>
+                    </li>
+
+
+                    <!-- END SIGN OUT -->
+                    <!-- MESSAGES -->
+                    <!-- END MESSAGES -->
+                    <!-- TASKS -->
+                    <!-- END TASKS -->
+                </ul>
+                <!-- END X-NAVIGATION VERTICAL -->
+                <!-- START BREADCRUMB -->
+                <!-- END BREADCRUMB -->
+                <!-- PAGE CONTENT WRAPPER -->
+                <div class="page-content-wrap">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+
+                    </asp:ContentPlaceHolder>
+
+                </div>
+                <!-- END PAGE CONTENT WRAPPER -->
+            </div>
+            <!-- END PAGE CONTENT -->
+        </div>
+        <!-- END PAGE CONTAINER -->
+        <!-- MESSAGE BOX-->
+        <div class="message-box animated fadeIn" data-sound="alert" id="mb-signout">
+            <div class="mb-container">
+                <div class="mb-middle">
+                    <div class="mb-title"><span class="fa fa-sign-out"></span> Log <strong>Out</strong> ?</div>
+                    <div class="mb-content">
+                        <p>Are you sure you want to log out?</p>
+                        <p>Press No if youwant to continue work. Press Yes to logout current user.</p>
+                    </div>
+                    <div class="mb-footer">
+                        <div class="pull-right">
+                            <a href="login/login.aspx" class="btn btn-success btn-lg">Yes</a>
+                            <button class="btn btn-default btn-lg mb-control-close">No</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!-- END MESSAGE BOX-->
+    <!-- START PRELOADS -->
+    <audio id="audio-alert" src="audio/alert.mp3" preload="auto"></audio>
+    <audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
+    <!-- END PRELOADS -->
+    <!-- START SCRIPTS -->
+    <!-- START PLUGINS -->
+    @*<script type="text/javascript" src="~/scripts/plugins/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="~/scripts/plugins/jquery/jquery-ui.min.js"></script>*@
+    <script type="text/javascript" src="~/scripts/plugins/bootstrap/bootstrap.min.js"></script>
+    <!-- END PLUGINS -->
+    <!-- THIS PAGE PLUGINS -->
+    <script type='text/javascript' src='~/scripts/plugins/icheck/icheck.min.js'></script>
+    <script type="text/javascript" src="~/scripts/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
+
+    <script type="text/javascript" src="~/scripts/plugins/bootstrap/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="~/scripts/plugins/bootstrap/bootstrap-file-input.js"></script>
+    <script type="text/javascript" src="~/scripts/plugins/bootstrap/bootstrap-select.js"></script>
+    <script type="text/javascript" src="~/scripts/plugins/tagsinput/jquery.tagsinput.min.js"></script>
+    <!-- END THIS PAGE PLUGINS -->
+    <script type="text/javascript" src="~/scripts/plugins/datatables/jquery.dataTables.min.js"></script>
+
+    <!-- START TEMPLATE -->
+
+    @*<script type="text/javascript" src="~/scripts/plugins.js"></script>
+    <script type="text/javascript" src="~/scripts/actions.js"></script>*@
+    <!-- END TEMPLATE -->
+    <!-- END SCRIPTS -->
+</body>
+
+</html>

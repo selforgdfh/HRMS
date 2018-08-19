@@ -1,0 +1,1422 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="HRMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="bank">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="code" Type="nvarchar" MaxLength="5" />
+          <Property Name="bankName" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="camp">
+          <Key>
+            <PropertyRef Name="campid" />
+          </Key>
+          <Property Name="campid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="campName" Type="nvarchar" MaxLength="500" />
+          <Property Name="active" Type="bit" />
+          <Property Name="parentid" Type="int" />
+        </EntityType>
+        <EntityType Name="department">
+          <Key>
+            <PropertyRef Name="deptid" />
+          </Key>
+          <Property Name="deptid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="500" />
+          <Property Name="active" Type="bit" />
+          <Property Name="parentid" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HRMS.dbo.documents' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="documents">
+          <Key>
+            <PropertyRef Name="docid" />
+          </Key>
+          <Property Name="docid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="doc_name" Type="nvarchar" MaxLength="500" />
+          <Property Name="empid" Type="int" />
+          <Property Name="doc_expiry" Type="datetime" />
+          <Property Name="alert" Type="bit" />
+          <Property Name="filepath" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="EMP_Personal">
+          <Key>
+            <PropertyRef Name="EMP_ID" />
+          </Key>
+          <Property Name="EMP_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Emp_ID_ORG" Type="nvarchar" MaxLength="50" />
+          <Property Name="FirstName" Type="varchar" MaxLength="60" />
+          <Property Name="LastName" Type="varchar" MaxLength="20" />
+          <Property Name="Department" Type="varchar" MaxLength="50" />
+          <Property Name="Location" Type="varchar" MaxLength="50" />
+          <Property Name="Designation" Type="varchar" MaxLength="50" />
+          <Property Name="ReportingTo" Type="varchar" MaxLength="50" />
+          <Property Name="Employee_type" Type="varchar" MaxLength="50" />
+          <Property Name="Religion" Type="varchar" MaxLength="50" />
+          <Property Name="Visa_status" Type="varchar" MaxLength="20" />
+          <Property Name="Emp_status" Type="varchar" MaxLength="50" />
+          <Property Name="Nationality" Type="varchar" MaxLength="20" />
+          <Property Name="DOB" Type="varchar" MaxLength="20" />
+          <Property Name="Gender" Type="varchar" MaxLength="50" />
+          <Property Name="Martial_status" Type="varchar" MaxLength="20" />
+          <Property Name="Accomodation" Type="varchar" MaxLength="50" />
+          <Property Name="Passport" Type="varchar" MaxLength="50" />
+          <Property Name="EmirateID" Type="varchar" MaxLength="50" />
+          <Property Name="BankName" Type="varchar" MaxLength="50" />
+          <Property Name="Bank_account" Type="varchar" MaxLength="20" />
+          <Property Name="camp" Type="int" />
+          <Property Name="Created_By" Type="int" />
+          <Property Name="Created_Date" Type="datetime" />
+          <Property Name="Modified_By" Type="int" />
+          <Property Name="Modified_Date" Type="datetime" />
+          <Property Name="emp_image" Type="image" />
+          <Property Name="joining" Type="date" />
+          <Property Name="outsource" Type="bit" />
+          <Property Name="remarks" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="employee">
+          <Key>
+            <PropertyRef Name="employeeId" />
+          </Key>
+          <Property Name="employeeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="empi_ID_Org" Type="int" />
+          <Property Name="firstName" Type="nvarchar" MaxLength="100" />
+          <Property Name="lastName" Type="nvarchar" MaxLength="100" />
+          <Property Name="department" Type="int" />
+          <Property Name="location" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Designation" Type="nvarchar" MaxLength="100" />
+          <Property Name="ReportingTo" Type="int" />
+          <Property Name="employeeType" Type="int" />
+          <Property Name="Religion" Type="nvarchar" MaxLength="50" />
+          <Property Name="visaStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="empStatus" Type="varchar" MaxLength="1" />
+          <Property Name="Nationality" Type="int" />
+          <Property Name="DOB" Type="nvarchar" MaxLength="50" />
+          <Property Name="gender" Type="char" MaxLength="1" />
+          <Property Name="martialStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="accomodation" Type="nvarchar" MaxLength="50" />
+          <Property Name="passport" Type="int" />
+          <Property Name="emirateID" Type="int" />
+          <Property Name="bankName" Type="int" />
+          <Property Name="bankAccount" Type="int" />
+          <Property Name="camp" Type="int" />
+          <Property Name="createdBy" Type="int" />
+          <Property Name="createdDate" Type="datetime" />
+          <Property Name="updatedBy" Type="int" />
+          <Property Name="updateDate" Type="datetime" />
+          <Property Name="empImage" Type="nvarchar" MaxLength="500" />
+          <Property Name="joining" Type="nvarchar" MaxLength="50" />
+          <Property Name="outsource" Type="int" />
+          <Property Name="remarks" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="employeeType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="empType" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="location">
+          <Key>
+            <PropertyRef Name="locationsCode" />
+          </Key>
+          <Property Name="locationsCode" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="locationsKey" Type="varchar" MaxLength="25" />
+          <Property Name="locationsName" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="parentID" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Status" Type="varchar" MaxLength="1" />
+          <Property Name="createdby" Type="int" />
+          <Property Name="createdon" Type="datetime" />
+          <Property Name="updatedby" Type="int" />
+          <Property Name="updatedon" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="UserCode" />
+          </Key>
+          <Property Name="UserCode" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="firstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="lastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="username" Type="nvarchar" MaxLength="30" />
+          <Property Name="password" Type="nvarchar" MaxLength="600" />
+          <Property Name="PhoneNumber" Type="int" />
+          <Property Name="MobileNumber" Type="int" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="EmpStatus" Type="char" MaxLength="1" />
+          <Property Name="createdby" Type="int" />
+          <Property Name="createdon" Type="datetime" />
+          <Property Name="updateby" Type="int" />
+          <Property Name="updatedon" Type="datetime" />
+          <Property Name="PswdUpdatedBy" Type="int" />
+          <Property Name="PswdUpdatedOn" Type="datetime" />
+          <Property Name="oldPswd" Type="nvarchar" MaxLength="600" />
+          <Property Name="NoOfAttempts" Type="int" />
+          <Property Name="NewCol" Type="int" />
+        </EntityType>
+        <EntityType Name="Nationality">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="5" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="status">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="test">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="UserCode" />
+          </Key>
+          <Property Name="UserCode" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="firstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="lastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="username" Type="nvarchar" MaxLength="30" />
+          <Property Name="password" Type="nvarchar" MaxLength="600" />
+          <Property Name="PhoneNumber" Type="int" />
+          <Property Name="MobileNumber" Type="int" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="EmpStatus" Type="char" MaxLength="1" />
+          <Property Name="createdby" Type="int" />
+          <Property Name="createdon" Type="datetime" />
+          <Property Name="updateby" Type="int" />
+          <Property Name="updatedon" Type="datetime" />
+          <Property Name="PswdUpdatedBy" Type="int" />
+          <Property Name="PswdUpdatedOn" Type="datetime" />
+          <Property Name="oldPswd" Type="nvarchar" MaxLength="600" />
+          <Property Name="NoOfAttempts" Type="int" />
+          <Property Name="NewCol" Type="int" />
+        </EntityType>
+        <EntityType Name="visatype">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK__camp__parentid__4B7734FF">
+          <End Role="camp" Type="Self.camp" Multiplicity="0..1" />
+          <End Role="camp1" Type="Self.camp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="camp">
+              <PropertyRef Name="campid" />
+            </Principal>
+            <Dependent Role="camp1">
+              <PropertyRef Name="parentid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__employee__create__1CBC4616">
+          <End Role="employee" Type="Self.employee" Multiplicity="0..1" />
+          <End Role="employee1" Type="Self.employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employee">
+              <PropertyRef Name="employeeId" />
+            </Principal>
+            <Dependent Role="employee1">
+              <PropertyRef Name="createdBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__employee__depart__17F790F9">
+          <End Role="department" Type="Self.department" Multiplicity="0..1" />
+          <End Role="employee" Type="Self.employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="department">
+              <PropertyRef Name="deptid" />
+            </Principal>
+            <Dependent Role="employee">
+              <PropertyRef Name="department" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__employee__employ__1AD3FDA4">
+          <End Role="employeeType" Type="Self.employeeType" Multiplicity="0..1" />
+          <End Role="employee" Type="Self.employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employeeType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="employee">
+              <PropertyRef Name="employeeType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__employee__empSta__1BC821DD">
+          <End Role="status" Type="Self.status" Multiplicity="0..1" />
+          <End Role="employee" Type="Self.employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="status">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="employee">
+              <PropertyRef Name="empStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__employee__locati__18EBB532">
+          <End Role="location" Type="Self.location" Multiplicity="0..1" />
+          <End Role="employee" Type="Self.employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="location">
+              <PropertyRef Name="locationsCode" />
+            </Principal>
+            <Dependent Role="employee">
+              <PropertyRef Name="location" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__employee__Report__19DFD96B">
+          <End Role="employee" Type="Self.employee" Multiplicity="0..1" />
+          <End Role="employee1" Type="Self.employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employee">
+              <PropertyRef Name="employeeId" />
+            </Principal>
+            <Dependent Role="employee1">
+              <PropertyRef Name="ReportingTo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__employee__update__1DB06A4F">
+          <End Role="employee" Type="Self.employee" Multiplicity="0..1" />
+          <End Role="employee1" Type="Self.employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employee">
+              <PropertyRef Name="employeeId" />
+            </Principal>
+            <Dependent Role="employee1">
+              <PropertyRef Name="updatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Login__createdby__46E78A0C">
+          <End Role="Login" Type="Self.Login" Multiplicity="0..1" />
+          <End Role="Login1" Type="Self.Login" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Login">
+              <PropertyRef Name="UserCode" />
+            </Principal>
+            <Dependent Role="Login1">
+              <PropertyRef Name="createdby" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Login__PswdUpdat__47DBAE45">
+          <End Role="Login" Type="Self.Login" Multiplicity="0..1" />
+          <End Role="Login1" Type="Self.Login" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Login">
+              <PropertyRef Name="UserCode" />
+            </Principal>
+            <Dependent Role="Login1">
+              <PropertyRef Name="PswdUpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Login__updateby__48CFD27E">
+          <End Role="Login" Type="Self.Login" Multiplicity="0..1" />
+          <End Role="Login1" Type="Self.Login" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Login">
+              <PropertyRef Name="UserCode" />
+            </Principal>
+            <Dependent Role="Login1">
+              <PropertyRef Name="updateby" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__users__createdby__4BAC3F29">
+          <End Role="users" Type="Self.users" Multiplicity="0..1" />
+          <End Role="users1" Type="Self.users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="UserCode" />
+            </Principal>
+            <Dependent Role="users1">
+              <PropertyRef Name="createdby" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__users__PswdUpdat__4CA06362">
+          <End Role="users" Type="Self.users" Multiplicity="0..1" />
+          <End Role="users1" Type="Self.users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="UserCode" />
+            </Principal>
+            <Dependent Role="users1">
+              <PropertyRef Name="PswdUpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__users__updateby__4D94879B">
+          <End Role="users" Type="Self.users" Multiplicity="0..1" />
+          <End Role="users1" Type="Self.users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="UserCode" />
+            </Principal>
+            <Dependent Role="users1">
+              <PropertyRef Name="updateby" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_location_createdby">
+          <End Role="users" Type="Self.users" Multiplicity="0..1" />
+          <End Role="location" Type="Self.location" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="UserCode" />
+            </Principal>
+            <Dependent Role="location">
+              <PropertyRef Name="createdby" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_location_parentID">
+          <End Role="location" Type="Self.location" Multiplicity="0..1" />
+          <End Role="location1" Type="Self.location" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="location">
+              <PropertyRef Name="locationsCode" />
+            </Principal>
+            <Dependent Role="location1">
+              <PropertyRef Name="parentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_location_status">
+          <End Role="status" Type="Self.status" Multiplicity="0..1" />
+          <End Role="location" Type="Self.location" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="status">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="location">
+              <PropertyRef Name="Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_location_updatedby">
+          <End Role="users" Type="Self.users" Multiplicity="0..1" />
+          <End Role="location" Type="Self.location" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="UserCode" />
+            </Principal>
+            <Dependent Role="location">
+              <PropertyRef Name="updatedby" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Bank_Type">
+          <End Role="bank" Type="Self.bank" Multiplicity="0..1" />
+          <End Role="employee" Type="Self.employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="bank">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="employee">
+              <PropertyRef Name="bankName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Camp_Type">
+          <End Role="camp" Type="Self.camp" Multiplicity="0..1" />
+          <End Role="employee" Type="Self.employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="camp">
+              <PropertyRef Name="campid" />
+            </Principal>
+            <Dependent Role="employee">
+              <PropertyRef Name="camp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Nationality_Type">
+          <End Role="Nationality" Type="Self.Nationality" Multiplicity="0..1" />
+          <End Role="employee" Type="Self.employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Nationality">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="employee">
+              <PropertyRef Name="Nationality" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HRMSModelStoreContainer">
+          <EntitySet Name="bank" EntityType="Self.bank" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="camp" EntityType="Self.camp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="department" EntityType="Self.department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EMP_Personal" EntityType="Self.EMP_Personal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="employee" EntityType="Self.employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="employeeType" EntityType="Self.employeeType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="location" EntityType="Self.location" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Nationality" EntityType="Self.Nationality" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="status" EntityType="Self.status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="test" EntityType="Self.test" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="visatype" EntityType="Self.visatype" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="documents" EntityType="Self.documents" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [documents].[docid] AS [docid], 
+    [documents].[doc_name] AS [doc_name], 
+    [documents].[empid] AS [empid], 
+    [documents].[doc_expiry] AS [doc_expiry], 
+    [documents].[alert] AS [alert], 
+    [documents].[filepath] AS [filepath]
+    FROM [dbo].[documents] AS [documents]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__camp__parentid__4B7734FF" Association="Self.FK__camp__parentid__4B7734FF">
+            <End Role="camp" EntitySet="camp" />
+            <End Role="camp1" EntitySet="camp" />
+          </AssociationSet>
+          <AssociationSet Name="FK__employee__create__1CBC4616" Association="Self.FK__employee__create__1CBC4616">
+            <End Role="employee" EntitySet="employee" />
+            <End Role="employee1" EntitySet="employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK__employee__depart__17F790F9" Association="Self.FK__employee__depart__17F790F9">
+            <End Role="department" EntitySet="department" />
+            <End Role="employee" EntitySet="employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK__employee__employ__1AD3FDA4" Association="Self.FK__employee__employ__1AD3FDA4">
+            <End Role="employeeType" EntitySet="employeeType" />
+            <End Role="employee" EntitySet="employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK__employee__empSta__1BC821DD" Association="Self.FK__employee__empSta__1BC821DD">
+            <End Role="status" EntitySet="status" />
+            <End Role="employee" EntitySet="employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK__employee__locati__18EBB532" Association="Self.FK__employee__locati__18EBB532">
+            <End Role="location" EntitySet="location" />
+            <End Role="employee" EntitySet="employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK__employee__Report__19DFD96B" Association="Self.FK__employee__Report__19DFD96B">
+            <End Role="employee" EntitySet="employee" />
+            <End Role="employee1" EntitySet="employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK__employee__update__1DB06A4F" Association="Self.FK__employee__update__1DB06A4F">
+            <End Role="employee" EntitySet="employee" />
+            <End Role="employee1" EntitySet="employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Login__createdby__46E78A0C" Association="Self.FK__Login__createdby__46E78A0C">
+            <End Role="Login" EntitySet="Login" />
+            <End Role="Login1" EntitySet="Login" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Login__PswdUpdat__47DBAE45" Association="Self.FK__Login__PswdUpdat__47DBAE45">
+            <End Role="Login" EntitySet="Login" />
+            <End Role="Login1" EntitySet="Login" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Login__updateby__48CFD27E" Association="Self.FK__Login__updateby__48CFD27E">
+            <End Role="Login" EntitySet="Login" />
+            <End Role="Login1" EntitySet="Login" />
+          </AssociationSet>
+          <AssociationSet Name="FK__users__createdby__4BAC3F29" Association="Self.FK__users__createdby__4BAC3F29">
+            <End Role="users" EntitySet="users" />
+            <End Role="users1" EntitySet="users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__users__PswdUpdat__4CA06362" Association="Self.FK__users__PswdUpdat__4CA06362">
+            <End Role="users" EntitySet="users" />
+            <End Role="users1" EntitySet="users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__users__updateby__4D94879B" Association="Self.FK__users__updateby__4D94879B">
+            <End Role="users" EntitySet="users" />
+            <End Role="users1" EntitySet="users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_location_createdby" Association="Self.FK_location_createdby">
+            <End Role="users" EntitySet="users" />
+            <End Role="location" EntitySet="location" />
+          </AssociationSet>
+          <AssociationSet Name="FK_location_parentID" Association="Self.FK_location_parentID">
+            <End Role="location" EntitySet="location" />
+            <End Role="location1" EntitySet="location" />
+          </AssociationSet>
+          <AssociationSet Name="FK_location_status" Association="Self.FK_location_status">
+            <End Role="status" EntitySet="status" />
+            <End Role="location" EntitySet="location" />
+          </AssociationSet>
+          <AssociationSet Name="FK_location_updatedby" Association="Self.FK_location_updatedby">
+            <End Role="users" EntitySet="users" />
+            <End Role="location" EntitySet="location" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Bank_Type" Association="Self.FK_User_Bank_Type">
+            <End Role="bank" EntitySet="bank" />
+            <End Role="employee" EntitySet="employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Camp_Type" Association="Self.FK_User_Camp_Type">
+            <End Role="camp" EntitySet="camp" />
+            <End Role="employee" EntitySet="employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Nationality_Type" Association="Self.FK_User_Nationality_Type">
+            <End Role="Nationality" EntitySet="Nationality" />
+            <End Role="employee" EntitySet="employee" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HRMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="bank">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="bankName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="employees" Relationship="Self.FK_User_Bank_Type" FromRole="bank" ToRole="employee" />
+        </EntityType>
+        <EntityType Name="camp">
+          <Key>
+            <PropertyRef Name="campid" />
+          </Key>
+          <Property Name="campid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="campName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="active" Type="Boolean" />
+          <Property Name="parentid" Type="Int32" />
+          <NavigationProperty Name="camp1" Relationship="Self.FK__camp__parentid__4B7734FF" FromRole="camp" ToRole="camp1" />
+          <NavigationProperty Name="camp2" Relationship="Self.FK__camp__parentid__4B7734FF" FromRole="camp1" ToRole="camp" />
+          <NavigationProperty Name="employees" Relationship="Self.FK_User_Camp_Type" FromRole="camp" ToRole="employee" />
+        </EntityType>
+        <EntityType Name="department">
+          <Key>
+            <PropertyRef Name="deptid" />
+          </Key>
+          <Property Name="deptid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="active" Type="Boolean" />
+          <Property Name="parentid" Type="Int32" />
+          <NavigationProperty Name="employees" Relationship="Self.FK__employee__depart__17F790F9" FromRole="department" ToRole="employee" />
+        </EntityType>
+        <EntityType Name="EMP_Personal">
+          <Key>
+            <PropertyRef Name="EMP_ID" />
+          </Key>
+          <Property Name="EMP_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Emp_ID_ORG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Department" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Designation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ReportingTo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Employee_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Religion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Visa_status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Emp_status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nationality" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DOB" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Martial_status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Accomodation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Passport" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmirateID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BankName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Bank_account" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="camp" Type="Int32" />
+          <Property Name="Created_By" Type="Int32" />
+          <Property Name="Created_Date" Type="DateTime" Precision="3" />
+          <Property Name="Modified_By" Type="Int32" />
+          <Property Name="Modified_Date" Type="DateTime" Precision="3" />
+          <Property Name="emp_image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="joining" Type="DateTime" Precision="0" />
+          <Property Name="outsource" Type="Boolean" />
+          <Property Name="remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="employee">
+          <Key>
+            <PropertyRef Name="employeeId" />
+          </Key>
+          <Property Name="employeeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="empi_ID_Org" Type="Int32" />
+          <Property Name="firstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="lastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="department" Type="Int32" />
+          <Property Name="location" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Designation" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ReportingTo" Type="Int32" />
+          <Property Name="employeeType" Type="Int32" />
+          <Property Name="Religion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="visaStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="empStatus" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Nationality" Type="Int32" />
+          <Property Name="DOB" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="martialStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="accomodation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="passport" Type="Int32" />
+          <Property Name="emirateID" Type="Int32" />
+          <Property Name="bankName" Type="Int32" />
+          <Property Name="bankAccount" Type="Int32" />
+          <Property Name="camp" Type="Int32" />
+          <Property Name="createdBy" Type="Int32" />
+          <Property Name="createdDate" Type="DateTime" Precision="3" />
+          <Property Name="updatedBy" Type="Int32" />
+          <Property Name="updateDate" Type="DateTime" Precision="3" />
+          <Property Name="empImage" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="joining" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="outsource" Type="Int32" />
+          <Property Name="remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="bank" Relationship="Self.FK_User_Bank_Type" FromRole="employee" ToRole="bank" />
+          <NavigationProperty Name="camp1" Relationship="Self.FK_User_Camp_Type" FromRole="employee" ToRole="camp" />
+          <NavigationProperty Name="department1" Relationship="Self.FK__employee__depart__17F790F9" FromRole="employee" ToRole="department" />
+          <NavigationProperty Name="employee1" Relationship="Self.FK__employee__create__1CBC4616" FromRole="employee" ToRole="employee1" />
+          <NavigationProperty Name="employee2" Relationship="Self.FK__employee__create__1CBC4616" FromRole="employee1" ToRole="employee" />
+          <NavigationProperty Name="employeeType1" Relationship="Self.FK__employee__employ__1AD3FDA4" FromRole="employee" ToRole="employeeType" />
+          <NavigationProperty Name="status" Relationship="Self.FK__employee__empSta__1BC821DD" FromRole="employee" ToRole="status" />
+          <NavigationProperty Name="location1" Relationship="Self.FK__employee__locati__18EBB532" FromRole="employee" ToRole="location" />
+          <NavigationProperty Name="employee11" Relationship="Self.FK__employee__Report__19DFD96B" FromRole="employee" ToRole="employee1" />
+          <NavigationProperty Name="employee3" Relationship="Self.FK__employee__Report__19DFD96B" FromRole="employee1" ToRole="employee" />
+          <NavigationProperty Name="employee12" Relationship="Self.FK__employee__update__1DB06A4F" FromRole="employee" ToRole="employee1" />
+          <NavigationProperty Name="employee4" Relationship="Self.FK__employee__update__1DB06A4F" FromRole="employee1" ToRole="employee" />
+          <NavigationProperty Name="Nationality1" Relationship="Self.FK_User_Nationality_Type" FromRole="employee" ToRole="Nationality" />
+        </EntityType>
+        <EntityType Name="employeeType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="empType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="employees" Relationship="Self.FK__employee__employ__1AD3FDA4" FromRole="employeeType" ToRole="employee" />
+        </EntityType>
+        <EntityType Name="location">
+          <Key>
+            <PropertyRef Name="locationsCode" />
+          </Key>
+          <Property Name="locationsCode" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="locationsKey" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="locationsName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="parentID" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="createdby" Type="Int32" />
+          <Property Name="createdon" Type="DateTime" Precision="3" />
+          <Property Name="updatedby" Type="Int32" />
+          <Property Name="updatedon" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="employees" Relationship="Self.FK__employee__locati__18EBB532" FromRole="location" ToRole="employee" />
+          <NavigationProperty Name="user" Relationship="Self.FK_location_createdby" FromRole="location" ToRole="users" />
+          <NavigationProperty Name="location1" Relationship="Self.FK_location_parentID" FromRole="location" ToRole="location1" />
+          <NavigationProperty Name="location2" Relationship="Self.FK_location_parentID" FromRole="location1" ToRole="location" />
+          <NavigationProperty Name="status1" Relationship="Self.FK_location_status" FromRole="location" ToRole="status" />
+          <NavigationProperty Name="user1" Relationship="Self.FK_location_updatedby" FromRole="location" ToRole="users" />
+        </EntityType>
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="UserCode" />
+          </Key>
+          <Property Name="UserCode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="firstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="lastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="username" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="Int32" />
+          <Property Name="MobileNumber" Type="Int32" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="EmpStatus" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="createdby" Type="Int32" />
+          <Property Name="createdon" Type="DateTime" Precision="3" />
+          <Property Name="updateby" Type="Int32" />
+          <Property Name="updatedon" Type="DateTime" Precision="3" />
+          <Property Name="PswdUpdatedBy" Type="Int32" />
+          <Property Name="PswdUpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="oldPswd" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+          <Property Name="NoOfAttempts" Type="Int32" />
+          <Property Name="NewCol" Type="Int32" />
+          <NavigationProperty Name="Login1" Relationship="Self.FK__Login__createdby__46E78A0C" FromRole="Login" ToRole="Login1" />
+          <NavigationProperty Name="Login2" Relationship="Self.FK__Login__createdby__46E78A0C" FromRole="Login1" ToRole="Login" />
+          <NavigationProperty Name="Login11" Relationship="Self.FK__Login__PswdUpdat__47DBAE45" FromRole="Login" ToRole="Login1" />
+          <NavigationProperty Name="Login3" Relationship="Self.FK__Login__PswdUpdat__47DBAE45" FromRole="Login1" ToRole="Login" />
+          <NavigationProperty Name="Login12" Relationship="Self.FK__Login__updateby__48CFD27E" FromRole="Login" ToRole="Login1" />
+          <NavigationProperty Name="Login4" Relationship="Self.FK__Login__updateby__48CFD27E" FromRole="Login1" ToRole="Login" />
+        </EntityType>
+        <EntityType Name="Nationality">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="employees" Relationship="Self.FK_User_Nationality_Type" FromRole="Nationality" ToRole="employee" />
+        </EntityType>
+        <EntityType Name="status">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="employees" Relationship="Self.FK__employee__empSta__1BC821DD" FromRole="status" ToRole="employee" />
+          <NavigationProperty Name="locations" Relationship="Self.FK_location_status" FromRole="status" ToRole="location" />
+        </EntityType>
+        <EntityType Name="test">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="UserCode" />
+          </Key>
+          <Property Name="UserCode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="firstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="lastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="username" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="Int32" />
+          <Property Name="MobileNumber" Type="Int32" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="EmpStatus" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="createdby" Type="Int32" />
+          <Property Name="createdon" Type="DateTime" Precision="3" />
+          <Property Name="updateby" Type="Int32" />
+          <Property Name="updatedon" Type="DateTime" Precision="3" />
+          <Property Name="PswdUpdatedBy" Type="Int32" />
+          <Property Name="PswdUpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="oldPswd" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+          <Property Name="NoOfAttempts" Type="Int32" />
+          <Property Name="NewCol" Type="Int32" />
+          <NavigationProperty Name="locations" Relationship="Self.FK_location_createdby" FromRole="users" ToRole="location" />
+          <NavigationProperty Name="locations1" Relationship="Self.FK_location_updatedby" FromRole="users" ToRole="location" />
+          <NavigationProperty Name="users1" Relationship="Self.FK__users__createdby__4BAC3F29" FromRole="users" ToRole="users1" />
+          <NavigationProperty Name="user1" Relationship="Self.FK__users__createdby__4BAC3F29" FromRole="users1" ToRole="users" />
+          <NavigationProperty Name="users11" Relationship="Self.FK__users__PswdUpdat__4CA06362" FromRole="users" ToRole="users1" />
+          <NavigationProperty Name="user2" Relationship="Self.FK__users__PswdUpdat__4CA06362" FromRole="users1" ToRole="users" />
+          <NavigationProperty Name="users12" Relationship="Self.FK__users__updateby__4D94879B" FromRole="users" ToRole="users1" />
+          <NavigationProperty Name="user3" Relationship="Self.FK__users__updateby__4D94879B" FromRole="users1" ToRole="users" />
+        </EntityType>
+        <EntityType Name="visatype">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="document">
+          <Key>
+            <PropertyRef Name="docid" />
+          </Key>
+          <Property Name="docid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="doc_name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="empid" Type="Int32" />
+          <Property Name="doc_expiry" Type="DateTime" Precision="3" />
+          <Property Name="alert" Type="Boolean" />
+          <Property Name="filepath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_User_Bank_Type">
+          <End Role="bank" Type="Self.bank" Multiplicity="0..1" />
+          <End Role="employee" Type="Self.employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="bank">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="employee">
+              <PropertyRef Name="bankName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__camp__parentid__4B7734FF">
+          <End Role="camp" Type="Self.camp" Multiplicity="0..1" />
+          <End Role="camp1" Type="Self.camp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="camp">
+              <PropertyRef Name="campid" />
+            </Principal>
+            <Dependent Role="camp1">
+              <PropertyRef Name="parentid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Camp_Type">
+          <End Role="camp" Type="Self.camp" Multiplicity="0..1" />
+          <End Role="employee" Type="Self.employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="camp">
+              <PropertyRef Name="campid" />
+            </Principal>
+            <Dependent Role="employee">
+              <PropertyRef Name="camp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__employee__depart__17F790F9">
+          <End Role="department" Type="Self.department" Multiplicity="0..1" />
+          <End Role="employee" Type="Self.employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="department">
+              <PropertyRef Name="deptid" />
+            </Principal>
+            <Dependent Role="employee">
+              <PropertyRef Name="department" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__employee__create__1CBC4616">
+          <End Role="employee" Type="Self.employee" Multiplicity="0..1" />
+          <End Role="employee1" Type="Self.employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employee">
+              <PropertyRef Name="employeeId" />
+            </Principal>
+            <Dependent Role="employee1">
+              <PropertyRef Name="createdBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__employee__employ__1AD3FDA4">
+          <End Role="employeeType" Type="Self.employeeType" Multiplicity="0..1" />
+          <End Role="employee" Type="Self.employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employeeType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="employee">
+              <PropertyRef Name="employeeType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__employee__empSta__1BC821DD">
+          <End Role="status" Type="Self.status" Multiplicity="0..1" />
+          <End Role="employee" Type="Self.employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="status">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="employee">
+              <PropertyRef Name="empStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__employee__locati__18EBB532">
+          <End Role="location" Type="Self.location" Multiplicity="0..1" />
+          <End Role="employee" Type="Self.employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="location">
+              <PropertyRef Name="locationsCode" />
+            </Principal>
+            <Dependent Role="employee">
+              <PropertyRef Name="location" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__employee__Report__19DFD96B">
+          <End Role="employee" Type="Self.employee" Multiplicity="0..1" />
+          <End Role="employee1" Type="Self.employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employee">
+              <PropertyRef Name="employeeId" />
+            </Principal>
+            <Dependent Role="employee1">
+              <PropertyRef Name="ReportingTo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__employee__update__1DB06A4F">
+          <End Role="employee" Type="Self.employee" Multiplicity="0..1" />
+          <End Role="employee1" Type="Self.employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employee">
+              <PropertyRef Name="employeeId" />
+            </Principal>
+            <Dependent Role="employee1">
+              <PropertyRef Name="updatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Nationality_Type">
+          <End Role="Nationality" Type="Self.Nationality" Multiplicity="0..1" />
+          <End Role="employee" Type="Self.employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Nationality">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="employee">
+              <PropertyRef Name="Nationality" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_location_createdby">
+          <End Role="users" Type="Self.user" Multiplicity="0..1" />
+          <End Role="location" Type="Self.location" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="UserCode" />
+            </Principal>
+            <Dependent Role="location">
+              <PropertyRef Name="createdby" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_location_parentID">
+          <End Role="location" Type="Self.location" Multiplicity="0..1" />
+          <End Role="location1" Type="Self.location" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="location">
+              <PropertyRef Name="locationsCode" />
+            </Principal>
+            <Dependent Role="location1">
+              <PropertyRef Name="parentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_location_status">
+          <End Role="status" Type="Self.status" Multiplicity="0..1" />
+          <End Role="location" Type="Self.location" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="status">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="location">
+              <PropertyRef Name="Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_location_updatedby">
+          <End Role="users" Type="Self.user" Multiplicity="0..1" />
+          <End Role="location" Type="Self.location" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="UserCode" />
+            </Principal>
+            <Dependent Role="location">
+              <PropertyRef Name="updatedby" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Login__createdby__46E78A0C">
+          <End Role="Login" Type="Self.Login" Multiplicity="0..1" />
+          <End Role="Login1" Type="Self.Login" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Login">
+              <PropertyRef Name="UserCode" />
+            </Principal>
+            <Dependent Role="Login1">
+              <PropertyRef Name="createdby" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Login__PswdUpdat__47DBAE45">
+          <End Role="Login" Type="Self.Login" Multiplicity="0..1" />
+          <End Role="Login1" Type="Self.Login" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Login">
+              <PropertyRef Name="UserCode" />
+            </Principal>
+            <Dependent Role="Login1">
+              <PropertyRef Name="PswdUpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Login__updateby__48CFD27E">
+          <End Role="Login" Type="Self.Login" Multiplicity="0..1" />
+          <End Role="Login1" Type="Self.Login" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Login">
+              <PropertyRef Name="UserCode" />
+            </Principal>
+            <Dependent Role="Login1">
+              <PropertyRef Name="updateby" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__users__createdby__4BAC3F29">
+          <End Role="users" Type="Self.user" Multiplicity="0..1" />
+          <End Role="users1" Type="Self.user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="UserCode" />
+            </Principal>
+            <Dependent Role="users1">
+              <PropertyRef Name="createdby" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__users__PswdUpdat__4CA06362">
+          <End Role="users" Type="Self.user" Multiplicity="0..1" />
+          <End Role="users1" Type="Self.user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="UserCode" />
+            </Principal>
+            <Dependent Role="users1">
+              <PropertyRef Name="PswdUpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__users__updateby__4D94879B">
+          <End Role="users" Type="Self.user" Multiplicity="0..1" />
+          <End Role="users1" Type="Self.user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="UserCode" />
+            </Principal>
+            <Dependent Role="users1">
+              <PropertyRef Name="updateby" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HRMSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="banks" EntityType="Self.bank" />
+          <EntitySet Name="camps" EntityType="Self.camp" />
+          <EntitySet Name="departments" EntityType="Self.department" />
+          <EntitySet Name="EMP_Personal" EntityType="Self.EMP_Personal" />
+          <EntitySet Name="employees" EntityType="Self.employee" />
+          <EntitySet Name="employeeTypes" EntityType="Self.employeeType" />
+          <EntitySet Name="locations" EntityType="Self.location" />
+          <EntitySet Name="Logins" EntityType="Self.Login" />
+          <EntitySet Name="Nationalities" EntityType="Self.Nationality" />
+          <EntitySet Name="status" EntityType="Self.status" />
+          <EntitySet Name="tests" EntityType="Self.test" />
+          <EntitySet Name="users" EntityType="Self.user" />
+          <EntitySet Name="visatypes" EntityType="Self.visatype" />
+          <EntitySet Name="documents" EntityType="Self.document" />
+          <AssociationSet Name="FK_User_Bank_Type" Association="Self.FK_User_Bank_Type">
+            <End Role="bank" EntitySet="banks" />
+            <End Role="employee" EntitySet="employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__camp__parentid__4B7734FF" Association="Self.FK__camp__parentid__4B7734FF">
+            <End Role="camp" EntitySet="camps" />
+            <End Role="camp1" EntitySet="camps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Camp_Type" Association="Self.FK_User_Camp_Type">
+            <End Role="camp" EntitySet="camps" />
+            <End Role="employee" EntitySet="employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__employee__depart__17F790F9" Association="Self.FK__employee__depart__17F790F9">
+            <End Role="department" EntitySet="departments" />
+            <End Role="employee" EntitySet="employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__employee__create__1CBC4616" Association="Self.FK__employee__create__1CBC4616">
+            <End Role="employee" EntitySet="employees" />
+            <End Role="employee1" EntitySet="employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__employee__employ__1AD3FDA4" Association="Self.FK__employee__employ__1AD3FDA4">
+            <End Role="employeeType" EntitySet="employeeTypes" />
+            <End Role="employee" EntitySet="employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__employee__empSta__1BC821DD" Association="Self.FK__employee__empSta__1BC821DD">
+            <End Role="status" EntitySet="status" />
+            <End Role="employee" EntitySet="employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__employee__locati__18EBB532" Association="Self.FK__employee__locati__18EBB532">
+            <End Role="location" EntitySet="locations" />
+            <End Role="employee" EntitySet="employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__employee__Report__19DFD96B" Association="Self.FK__employee__Report__19DFD96B">
+            <End Role="employee" EntitySet="employees" />
+            <End Role="employee1" EntitySet="employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__employee__update__1DB06A4F" Association="Self.FK__employee__update__1DB06A4F">
+            <End Role="employee" EntitySet="employees" />
+            <End Role="employee1" EntitySet="employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Nationality_Type" Association="Self.FK_User_Nationality_Type">
+            <End Role="Nationality" EntitySet="Nationalities" />
+            <End Role="employee" EntitySet="employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_location_createdby" Association="Self.FK_location_createdby">
+            <End Role="users" EntitySet="users" />
+            <End Role="location" EntitySet="locations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_location_parentID" Association="Self.FK_location_parentID">
+            <End Role="location" EntitySet="locations" />
+            <End Role="location1" EntitySet="locations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_location_status" Association="Self.FK_location_status">
+            <End Role="status" EntitySet="status" />
+            <End Role="location" EntitySet="locations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_location_updatedby" Association="Self.FK_location_updatedby">
+            <End Role="users" EntitySet="users" />
+            <End Role="location" EntitySet="locations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Login__createdby__46E78A0C" Association="Self.FK__Login__createdby__46E78A0C">
+            <End Role="Login" EntitySet="Logins" />
+            <End Role="Login1" EntitySet="Logins" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Login__PswdUpdat__47DBAE45" Association="Self.FK__Login__PswdUpdat__47DBAE45">
+            <End Role="Login" EntitySet="Logins" />
+            <End Role="Login1" EntitySet="Logins" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Login__updateby__48CFD27E" Association="Self.FK__Login__updateby__48CFD27E">
+            <End Role="Login" EntitySet="Logins" />
+            <End Role="Login1" EntitySet="Logins" />
+          </AssociationSet>
+          <AssociationSet Name="FK__users__createdby__4BAC3F29" Association="Self.FK__users__createdby__4BAC3F29">
+            <End Role="users" EntitySet="users" />
+            <End Role="users1" EntitySet="users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__users__PswdUpdat__4CA06362" Association="Self.FK__users__PswdUpdat__4CA06362">
+            <End Role="users" EntitySet="users" />
+            <End Role="users1" EntitySet="users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__users__updateby__4D94879B" Association="Self.FK__users__updateby__4D94879B">
+            <End Role="users" EntitySet="users" />
+            <End Role="users1" EntitySet="users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HRMSModelStoreContainer" CdmEntityContainer="HRMSEntities">
+          <EntitySetMapping Name="banks">
+            <EntityTypeMapping TypeName="HRMSModel.bank">
+              <MappingFragment StoreEntitySet="bank">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="bankName" ColumnName="bankName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="camps">
+            <EntityTypeMapping TypeName="HRMSModel.camp">
+              <MappingFragment StoreEntitySet="camp">
+                <ScalarProperty Name="campid" ColumnName="campid" />
+                <ScalarProperty Name="campName" ColumnName="campName" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="parentid" ColumnName="parentid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="departments">
+            <EntityTypeMapping TypeName="HRMSModel.department">
+              <MappingFragment StoreEntitySet="department">
+                <ScalarProperty Name="deptid" ColumnName="deptid" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="parentid" ColumnName="parentid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EMP_Personal">
+            <EntityTypeMapping TypeName="HRMSModel.EMP_Personal">
+              <MappingFragment StoreEntitySet="EMP_Personal">
+                <ScalarProperty Name="EMP_ID" ColumnName="EMP_ID" />
+                <ScalarProperty Name="Emp_ID_ORG" ColumnName="Emp_ID_ORG" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="ReportingTo" ColumnName="ReportingTo" />
+                <ScalarProperty Name="Employee_type" ColumnName="Employee_type" />
+                <ScalarProperty Name="Religion" ColumnName="Religion" />
+                <ScalarProperty Name="Visa_status" ColumnName="Visa_status" />
+                <ScalarProperty Name="Emp_status" ColumnName="Emp_status" />
+                <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Martial_status" ColumnName="Martial_status" />
+                <ScalarProperty Name="Accomodation" ColumnName="Accomodation" />
+                <ScalarProperty Name="Passport" ColumnName="Passport" />
+                <ScalarProperty Name="EmirateID" ColumnName="EmirateID" />
+                <ScalarProperty Name="BankName" ColumnName="BankName" />
+                <ScalarProperty Name="Bank_account" ColumnName="Bank_account" />
+                <ScalarProperty Name="camp" ColumnName="camp" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+                <ScalarProperty Name="Modified_Date" ColumnName="Modified_Date" />
+                <ScalarProperty Name="emp_image" ColumnName="emp_image" />
+                <ScalarProperty Name="joining" ColumnName="joining" />
+                <ScalarProperty Name="outsource" ColumnName="outsource" />
+                <ScalarProperty Name="remarks" ColumnName="remarks" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="employees">
+            <EntityTypeMapping TypeName="HRMSModel.employee">
+              <MappingFragment StoreEntitySet="employee">
+                <ScalarProperty Name="employeeId" ColumnName="employeeId" />
+                <ScalarProperty Name="empi_ID_Org" ColumnName="empi_ID_Org" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="department" ColumnName="department" />
+                <ScalarProperty Name="location" ColumnName="location" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="ReportingTo" ColumnName="ReportingTo" />
+                <ScalarProperty Name="employeeType" ColumnName="employeeType" />
+                <ScalarProperty Name="Religion" ColumnName="Religion" />
+                <ScalarProperty Name="visaStatus" ColumnName="visaStatus" />
+                <ScalarProperty Name="empStatus" ColumnName="empStatus" />
+                <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="martialStatus" ColumnName="martialStatus" />
+                <ScalarProperty Name="accomodation" ColumnName="accomodation" />
+                <ScalarProperty Name="passport" ColumnName="passport" />
+                <ScalarProperty Name="emirateID" ColumnName="emirateID" />
+                <ScalarProperty Name="bankName" ColumnName="bankName" />
+                <ScalarProperty Name="bankAccount" ColumnName="bankAccount" />
+                <ScalarProperty Name="camp" ColumnName="camp" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+                <ScalarProperty Name="updatedBy" ColumnName="updatedBy" />
+                <ScalarProperty Name="updateDate" ColumnName="updateDate" />
+                <ScalarProperty Name="empImage" ColumnName="empImage" />
+                <ScalarProperty Name="joining" ColumnName="joining" />
+                <ScalarProperty Name="outsource" ColumnName="outsource" />
+                <ScalarProperty Name="remarks" ColumnName="remarks" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="employeeTypes">
+            <EntityTypeMapping TypeName="HRMSModel.employeeType">
+              <MappingFragment StoreEntitySet="employeeType">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="empType" ColumnName="empType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="locations">
+            <EntityTypeMapping TypeName="HRMSModel.location">
+              <MappingFragment StoreEntitySet="location">
+                <ScalarProperty Name="locationsCode" ColumnName="locationsCode" />
+                <ScalarProperty Name="locationsKey" ColumnName="locationsKey" />
+                <ScalarProperty Name="locationsName" ColumnName="locationsName" />
+                <ScalarProperty Name="parentID" ColumnName="parentID" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="createdon" ColumnName="createdon" />
+                <ScalarProperty Name="updatedby" ColumnName="updatedby" />
+                <ScalarProperty Name="updatedon" ColumnName="updatedon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Logins">
+            <EntityTypeMapping TypeName="HRMSModel.Login">
+              <MappingFragment StoreEntitySet="Login">
+                <ScalarProperty Name="UserCode" ColumnName="UserCode" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmpStatus" ColumnName="EmpStatus" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="createdon" ColumnName="createdon" />
+                <ScalarProperty Name="updateby" ColumnName="updateby" />
+                <ScalarProperty Name="updatedon" ColumnName="updatedon" />
+                <ScalarProperty Name="PswdUpdatedBy" ColumnName="PswdUpdatedBy" />
+                <ScalarProperty Name="PswdUpdatedOn" ColumnName="PswdUpdatedOn" />
+                <ScalarProperty Name="oldPswd" ColumnName="oldPswd" />
+                <ScalarProperty Name="NoOfAttempts" ColumnName="NoOfAttempts" />
+                <ScalarProperty Name="NewCol" ColumnName="NewCol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Nationalities">
+            <EntityTypeMapping TypeName="HRMSModel.Nationality">
+              <MappingFragment StoreEntitySet="Nationality">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="status">
+            <EntityTypeMapping TypeName="HRMSModel.status">
+              <MappingFragment StoreEntitySet="status">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tests">
+            <EntityTypeMapping TypeName="HRMSModel.test">
+              <MappingFragment StoreEntitySet="test">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="HRMSModel.user">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="UserCode" ColumnName="UserCode" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmpStatus" ColumnName="EmpStatus" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="createdon" ColumnName="createdon" />
+                <ScalarProperty Name="updateby" ColumnName="updateby" />
+                <ScalarProperty Name="updatedon" ColumnName="updatedon" />
+                <ScalarProperty Name="PswdUpdatedBy" ColumnName="PswdUpdatedBy" />
+                <ScalarProperty Name="PswdUpdatedOn" ColumnName="PswdUpdatedOn" />
+                <ScalarProperty Name="oldPswd" ColumnName="oldPswd" />
+                <ScalarProperty Name="NoOfAttempts" ColumnName="NoOfAttempts" />
+                <ScalarProperty Name="NewCol" ColumnName="NewCol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="visatypes">
+            <EntityTypeMapping TypeName="HRMSModel.visatype">
+              <MappingFragment StoreEntitySet="visatype">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="documents">
+            <EntityTypeMapping TypeName="HRMSModel.document">
+              <MappingFragment StoreEntitySet="documents">
+                <ScalarProperty Name="docid" ColumnName="docid" />
+                <ScalarProperty Name="doc_name" ColumnName="doc_name" />
+                <ScalarProperty Name="empid" ColumnName="empid" />
+                <ScalarProperty Name="doc_expiry" ColumnName="doc_expiry" />
+                <ScalarProperty Name="alert" ColumnName="alert" />
+                <ScalarProperty Name="filepath" ColumnName="filepath" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,256 @@
+﻿@model HRMS.DBModel.employee
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>employee</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.empi_ID_Org)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.empi_ID_Org)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.firstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.firstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Designation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Designation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Religion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Religion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.visaStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.visaStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DOB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DOB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.martialStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.martialStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.accomodation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.accomodation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.passport)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.passport)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.emirateID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.emirateID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bankAccount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bankAccount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.createdDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.createdDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.updateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.updateDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.empImage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.empImage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.joining)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.joining)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.outsource)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.outsource)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.remarks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.remarks)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bank.code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bank.code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.department1.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.department1.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.employee2.firstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.employee2.firstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.employeeType1.empType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.employeeType1.empType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.status.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.location1.locationsKey)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.location1.locationsKey)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.employee3.firstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.employee3.firstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.employee4.firstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.employee4.firstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nationality1.Code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nationality1.Code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.camp1.campName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.camp1.campName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
